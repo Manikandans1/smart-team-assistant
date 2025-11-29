@@ -1,0 +1,53 @@
+{
+  "name": "Smart Team Assistant",
+  "version": "1.0.0",
+  "author": "Mani S",
+  "description": "Convert chat messages into tasks, create tasks via slash commands, manage tasks in a dashboard widget and get help from a bot.",
+  "permissions": [
+    "bot",
+    "command",
+    "messageAction",
+    "widget",
+    "webhook"
+  ],
+  "bots": [
+    {
+      "name": "STA Bot",
+      "id": "sta_bot",
+      "description": "Smart Team Assistant bot for help and onboarding.",
+      "webhook": {
+        "url": "https://alethea-foreign-minutely.ngrok-free.dev/api/bot"
+      }
+    }
+  ],
+  "commands": [
+    {
+      "name": "task",
+      "display_name": "Task",
+      "description": "Create a new task. Usage: /task Title ; assignee:name ; due:YYYY-MM-DD",
+      "type": "slash",
+      "webhook": {
+        "url": "https://YOUR_PUBLIC_URL/api/command/task"
+      }
+    }
+  ],
+  "messageActions": [
+    {
+      "name": "Create Task",
+      "type": "context",
+      "description": "Convert this message into a task in Smart Team Assistant.",
+      "webhook": {
+        "url": "https://YOUR_PUBLIC_URL/api/message-action/create-task"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "name": "STA Dashboard",
+      "type": "sidebar",
+      "description": "Sidebar dashboard for Smart Team Assistant.",
+      "url": "https://alethea-foreign-minutely.ngrok-free.dev/widget/index.html",
+      "height": 700
+    }
+  ]
+}
